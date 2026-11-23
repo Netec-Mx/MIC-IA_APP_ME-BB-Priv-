@@ -78,9 +78,6 @@ Cada uno de estos laboratorios está diseñado para ofrecerte una experiencia pr
 
   - ⏱️ **Duración estimada**: 45 min.
 
-## Recursos
-
-#### [Ingresa a recursos]([Capitulo06/Practica09_Diagnostico.md](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/tree/main/recursos))
 ---
 
 ## 📬 **Contacto y más información**
