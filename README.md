@@ -1,46 +1,89 @@
-# Integración avanzada de aplicaciones e identidades con Microsoft Entra · Guía de laboratorios (MIC_IA_APP_ME_BB)
+<a href="https://netec.com">
+  <img src="https://static.wixstatic.com/media/96edd2_934dddb3230b4b16b1d1c56c51143738~mv2.png" alt="Logo de Netec" width="300"/>
+</a>
 
-Prácticas del curso sobre el caso **Contoso**, una empresa que integra con Microsoft Entra sus aplicaciones SaaS, sus aplicaciones del centro de datos, a sus proveedores y a sus clientes en línea. Cada módulo de la presentación tiene su carpeta con la guía de cada práctica en Markdown (`.md`) y en Word (`.docx`). Las aplicaciones de prueba, los scripts y los datos están en la carpeta `recursos`.
+# Integración avanzada de aplicaciones e identidades con Microsoft Entra
 
-| Módulo | Práctica | Guía | Duración |
-|---|---|---|---|
-| 1. Arquitectura de integración de aplicaciones | 1. Preparación del ambiente y análisis de escenarios de integración | `Modulo01/Practica01_Preparacion_Analisis` | 45 min |
-| 2. Federación y SSO mediante SAML 2.0 | 2. Integración de una aplicación personalizada mediante SAML 2.0 | `Modulo02/Practica02_Integracion_SAML` | 75 min |
-| 2. Federación y SSO mediante SAML 2.0 | 3. Gestión y rotación de certificados SAML | `Modulo02/Practica03_Rotacion_Certificados` | 30 min |
-| 3. Aprovisionamiento automático mediante SCIM 2.0 | 4. Aprovisionamiento automático mediante SCIM 2.0 | `Modulo03/Practica04_Aprovisionamiento_SCIM` | 100 min |
-| 4. Application proxy | 5. Publicación segura de una aplicación privada | `Modulo04/Practica05_Publicacion_App_Proxy` | 70 min |
-| 4. Application proxy | 6. Configuración de SSO para una aplicación heredada | `Modulo04/Practica06_SSO_KCD_Encabezados` | 60 min |
-| 5. External ID | 7. Implementación de colaboración B2B | `Modulo05/Practica07_Colaboracion_B2B` | 45 min |
-| 5. External ID | 8. Federación de clientes con Microsoft Entra External ID | `Modulo05/Practica08_External_ID_Clientes` | 90 min |
-| 6. Diagnóstico y operación | 9. Diagnóstico de una integración con errores | `Modulo06/Practica09_Diagnostico` | 45 min |
+## Plataforma de laboratorios
 
-## Cómo empezar
+Te damos la bienvenida a la **plataforma de laboratorios** del curso **Integración avanzada de aplicaciones e identidades con Microsoft Entra**. Aquí podrás explorar diferentes tecnologías a través de prácticas guiadas. ¡Desarrolla tus habilidades y lleva tus conocimientos al siguiente nivel!
 
-1. Tu ambiente lo prepara soporte con la guía de instalación del curso (SUG): estación **LAB-CLIENT**, servidor **LAB-SRV01**, tenant de trabajo con licencias, endpoint SCIM y external tenant.
-2. La carpeta `recursos` está en `C:\Curso\recursos` de LAB-CLIENT, con el entorno de Python en `C:\Curso\.venv`.
-3. Haz las prácticas en orden: la 3 usa la aplicación de la 2; la 4 y la 7 agregan aprovisionamiento e invitados a esa misma aplicación; la 6 continúa la 5, y la 9 diagnostica lo construido en las anteriores.
-4. Anota los datos de tu ambiente en `recursos/datos/mis-datos.txt` desde la Práctica 1.
+## Lista de laboratorios
 
-## Estructura
+Cada uno de estos laboratorios está diseñado para ofrecerte una experiencia práctica. Haz clic en los enlaces para comenzar.
 
-```text
-MIC_IA_APP_ME_BB/
-├── Modulo01/ … Modulo06/        guía de cada práctica (.md y .docx)
-└── recursos/                    carpeta de trabajo (C:\Curso\recursos en LAB-CLIENT)
-    ├── requirements.txt         bibliotecas de Python de las aplicaciones de prueba
-    ├── saml-sp/                 aplicación SAML de prueba (service provider): valida firma, audiencia y vigencia
-    │   ├── app.py, config.json, generar_certificado_https.py
-    │   └── certs/               certificado HTTPS de localhost y certificados de firma de Entra
-    ├── scim-endpoint/           endpoint SCIM 2.0 de prueba (Azure App Service): /scim/v2, /registro, /cuentas
-    ├── oidc-app/                tienda en línea (OIDC con MSAL) para el external tenant
-    ├── scripts/                 verificar-ambiente, inventario-certificados, invitar-externos,
-    │   │                        reporte-salud y carga-rrhh (Graph PowerShell)
-    │   └── instructor/          fallas y guía de la Práctica 9 (uso del instructor)
-    ├── datos/                   escenarios de Contoso, matriz de integración, invitados, lote de RR. HH.,
-    │                            bitácora de diagnóstico, logotipo y mis-datos.txt
-    └── soluciones/              archivos completos esperados (matriz, config.json, bitácora)
-```
+### Módulo 1. Arquitectura de integración de aplicaciones con Microsoft Entra
 
-## Nota sobre los resultados esperados
+#### [Práctica 1. Preparación del ambiente y análisis de escenarios de integración](Capitulo01/Practica01_Preparacion_Analisis.md)
 
-Los identificadores (Tenant ID, huellas, object ID) y las fechas de los resultados esperados son ejemplos: en tu tenant serán distintos. Los nombres de menús del Microsoft Entra admin center se escriben en inglés y pueden variar ligeramente con las actualizaciones del portal.
+  - **Descripción**: Verificación del tenant, licencias, roles y usuarios de prueba que usarán las prácticas 2 a 9; análisis de aplicaciones SaaS, propietarias y on-premises para elegir el mecanismo de autenticación, SSO y aprovisionamiento.
+
+  - ⏱️ **Duración estimada**: 45 min.
+
+### Módulo 2. Federación y SSO mediante SAML 2.0
+
+#### [Práctica 2. Integración de una aplicación personalizada mediante SAML 2.0](Capitulo02/Practica02_Integracion_SAML.md)
+
+  - **Descripción**: Aplicación fuera de la galería, SSO SAML, NameID y claims según requisitos, asignación de usuarios y validación de las assertions.
+
+  - ⏱️ **Duración estimada**: 75 min.
+
+#### [Práctica 3. Gestión y rotación de certificados SAML](Capitulo02/Practica03_Rotacion_Certificados.md)
+
+  - **Descripción**: Revisión del certificado de firma, preparación de la renovación y estrategia de transición sin interrupción del SSO.
+
+  - ⏱️ **Duración estimada**: 30 min.
+
+### Módulo 3. Aprovisionamiento automático mediante SCIM 2.0
+
+#### [Práctica 4. Aprovisionamiento automático mediante SCIM 2.0](Capitulo03/Practica04_Aprovisionamiento_SCIM.md)
+
+  - **Descripción**: Aprovisionamiento hacia una aplicación compatible con SCIM, mappings y scoping filters, usuarios de prueba y análisis de los registros.
+
+  - ⏱️ **Duración estimada**: 100 min.
+
+### Módulo 4. Acceso seguro a aplicaciones privadas con Microsoft Entra application proxy
+
+#### [Práctica 5. Publicación segura de una aplicación privada](Capitulo04/Practica05_Publicacion_App_Proxy.md)
+
+  - **Descripción**: Publicación con application proxy, asignación de usuarios, preautenticación con Entra y validación del acceso desde una red externa.
+
+  - ⏱️ **Duración estimada**: 70 min.
+
+#### [Práctica 6. Configuración de SSO para una aplicación heredada](Capitulo04/Practica06_SSO_KCD_Encabezados.md)
+
+  - **Descripción**: SSO con KCD y con encabezados; análisis del flujo entre Microsoft Entra, el conector y las aplicaciones privadas.
+
+  - ⏱️ **Duración estimada**: 60 min.
+
+### Módulo 5. Microsoft Entra External ID y federación de identidades externas
+
+#### [Práctica 7. Implementación de colaboración B2B](Capitulo05/Practica07_Colaboracion_B2B.md)
+
+  - **Descripción**: Incorporación de usuarios externos, acceso a una aplicación empresarial y prueba de la autenticación con una identidad externa.
+
+  - ⏱️ **Duración estimada**: 45 min.
+
+#### [Práctica 8. Federación de clientes con Microsoft Entra External ID](Capitulo05/Practica08_External_ID_Clientes.md)
+
+  - **Descripción**: Escenario de autenticación para usuarios externos, user flow de registro e inicio de sesión, proveedor de identidad externo y validación end-to-end.
+
+  - ⏱️ **Duración estimada**: 90 min.
+
+### Módulo 6. Diagnóstico y operación de integraciones
+
+#### [Práctica 9. Diagnóstico de una integración con errores](Capitulo06/Practica09_Diagnostico.md)
+
+  - **Descripción**: Fallos preconfigurados de SAML, claims, aprovisionamiento o acceso; uso de registros y herramientas de diagnóstico para identificar el origen y la corrección.
+
+  - ⏱️ **Duración estimada**: 45 min.
+
+---
+
+## 📬 **Contacto y más información**
+
+Si tienes alguna pregunta o necesitas más detalles, no dudes en [contactarnos](mailto:soporte@netec.com). También puedes encontrar más recursos en nuestra [página](https://netec.com).
+
+---
+
+¡Gracias por visitar nuestra plataforma! No olvides revisar todos los laboratorios y comenzar tu viaje de aprendizaje hoy mismo.
