@@ -25,7 +25,7 @@ Al terminar la práctica podrás:
 | Archivo (en `C:\Curso\recursos\saml-sp`) | Qué haces |
 |---|---|
 | `certs\entra-nuevo.cer` | Guardas el certificado nuevo descargado de Entra (archivo nuevo) |
-| `config.json` | Agregas el certificado nuevo y después retiras el anterior |
+| [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) | Agregas el certificado nuevo y después retiras el anterior |
 
 ---
 
@@ -106,7 +106,7 @@ Resultado esperado: la aplicación muestra **Firma válida: FALLA** con el detal
 
 ## Tarea 3. Rotación coordinada sin interrupción
 
-**Paso 3.1.** En `config.json` agrega el certificado nuevo a la lista de confianza y guarda:
+**Paso 3.1.** En [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) agrega el certificado nuevo a la lista de confianza y guarda:
 
 ```json
   "certificados_idp": ["certs/entra-actual.cer", "certs/entra-nuevo.cer"],
@@ -126,7 +126,7 @@ Firma de la assertion   válida: Firma RSA-SHA-256 verificada con certs/entra-nu
 Huella del certificado  4F1A8B2C...C9D2
 ```
 
-**Paso 3.4.** Retira el certificado anterior de la aplicación: deja solo el nuevo en `config.json`, guarda, reinicia y prueba de nuevo (debe seguir funcionando).
+**Paso 3.4.** Retira el certificado anterior de la aplicación: deja solo el nuevo en [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json), guarda, reinicia y prueba de nuevo (debe seguir funcionando).
 
 ```json
   "certificados_idp": ["certs/entra-nuevo.cer"],
@@ -157,7 +157,7 @@ Resultado esperado en la aplicación: `Respuesta: válida · Assertion: válida`
 
 **Paso 4.2.** Regresa la opción a **Sign SAML assertion** y guarda.
 
-**Paso 4.3.** Ejecuta de nuevo `./inventario-certificados.ps1 -Dias 1200`. Resultado esperado: una sola fila, con la huella nueva, `Activo = True` y alrededor de 730 días.
+**Paso 4.3.** Ejecuta de nuevo [`./inventario-certificados.ps1 -Dias 1200`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/inventario-certificados.ps1). Resultado esperado: una sola fila, con la huella nueva, `Activo = True` y alrededor de 730 días.
 
 > **Reto opcional.** Con Microsoft Graph PowerShell crea un certificado inactivo sin usar el portal (`Add-MgServicePrincipalTokenSigningCertificate`, ver la presentación del Módulo 2) y compruébalo en la página **SAML Certificates**. Elimínalo al terminar.
 
@@ -170,7 +170,7 @@ Resultado esperado en la aplicación: `Respuesta: válida · Assertion: válida`
 | Rotación no coordinada (Paso 2.3) | Firma inválida, con la huella del certificado nuevo |
 | Rotación coordinada (Tarea 3) | Sin fallas en ningún momento |
 | Certificados en Entra al final | Uno solo, el nuevo, activo, con vencimiento a dos años |
-| `config.json` al final | Solo `certs/entra-nuevo.cer` |
+| [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) al final | Solo `certs/entra-nuevo.cer` |
 | Notificaciones | Dos destinatarios |
 
 **Lista de verificación**
@@ -179,11 +179,11 @@ Resultado esperado en la aplicación: `Respuesta: válida · Assertion: válida`
 - [ ] Vi la falla de una rotación no coordinada y la revertí.
 - [ ] Roté el certificado sin interrupción y retiré el anterior en ambos lados.
 - [ ] Comparé las tres opciones de firma.
-- [ ] Consulté el inventario con `inventario-certificados.ps1`.
+- [ ] Consulté el inventario con [`inventario-certificados.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/inventario-certificados.ps1).
 
 ## Archivos completos
 
-**`C:\Curso\recursos\saml-sp\config.json`** (también en `soluciones\saml-sp-config-practica3.json`)
+**[`C:\Curso\recursos\saml-sp\config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json)** (también en `soluciones\saml-sp-config-practica3.json`)
 
 ```json
 {
@@ -199,7 +199,7 @@ Resultado esperado en la aplicación: `Respuesta: válida · Assertion: válida`
 }
 ```
 
-**`C:\Curso\recursos\scripts\inventario-certificados.ps1`** (se usa sin cambios)
+**[`C:\Curso\recursos\scripts\inventario-certificados.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/inventario-certificados.ps1)** (se usa sin cambios)
 
 ```powershell
 param(
@@ -233,7 +233,7 @@ Write-Host "Aplicaciones SAML: $($apps.Count) · certificados con menos de $Dias
 | Síntoma | Causa | Solución |
 |---|---|---|
 | La firma sigue validando con el certificado anterior tras activar el nuevo | El cambio tarda unos minutos en propagarse | Espera uno o dos minutos y usa una ventana InPrivate nueva |
-| La tabla de certificados muestra "no existe" | El nombre del archivo no coincide con `config.json` | Revisa el nombre y la carpeta `certs` |
+| La tabla de certificados muestra "no existe" | El nombre del archivo no coincide con [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) | Revisa el nombre y la carpeta `certs` |
 | Error al leer el certificado | Se descargó el formato **Federation Metadata XML** | Descarga **Certificate (Base64)** o **Base64 certificate download** |
 | No aparece **Make certificate active** | El certificado ya está activo | Usa el menú ⋯ de la otra fila |
-| `inventario-certificados.ps1` no muestra filas | `-Dias` es menor que los días restantes | Ejecuta con `-Dias 1200` |
+| [`inventario-certificados.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/inventario-certificados.ps1) no muestra filas | `-Dias` es menor que los días restantes | Ejecuta con `-Dias 1200` |

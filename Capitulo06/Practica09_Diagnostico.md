@@ -6,7 +6,7 @@
 
 Al terminar la práctica podrás:
 
-- Obtener una vista general de la salud de las integraciones con `reporte-salud.ps1`.
+- Obtener una vista general de la salud de las integraciones con [`reporte-salud.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/reporte-salud.ps1).
 - Aplicar un método ordenado: síntoma → ubicación → evidencia → hipótesis → corrección → validación.
 - Usar sign-in logs, audit logs, provisioning logs, la aplicación de prueba y Provision on demand para encontrar la causa raíz.
 - Corregir cinco fallas de SAML, claims, certificados, aprovisionamiento y acceso, y documentarlas.
@@ -25,8 +25,8 @@ Al terminar la práctica podrás:
 
 | Archivo (en `C:\Curso\recursos`) | Qué haces |
 |---|---|
-| `datos\bitacora-diagnostico.csv` | Registras síntoma, evidencia, causa, corrección y validación de cada caso |
-| `salidas\*.csv` | Los genera `reporte-salud.ps1` (archivos nuevos) |
+| [`datos\bitacora-diagnostico.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/bitacora-diagnostico.csv) | Registras síntoma, evidencia, causa, corrección y validación de cada caso |
+| `salidas\*.csv` | Los genera [`reporte-salud.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/reporte-salud.ps1) (archivos nuevos) |
 
 ---
 
@@ -62,7 +62,7 @@ cd C:\Curso\recursos\scripts
 
 Los archivos CSV quedan en `C:\Curso\recursos\salidas`. Abre `cambios-aplicaciones.csv`: es la lista de sospechosos.
 
-**Paso 1.2.** Abre `datos\bitacora-diagnostico.csv` en VS Code. Lo completarás caso por caso.
+**Paso 1.2.** Abre [`datos\bitacora-diagnostico.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/bitacora-diagnostico.csv) en VS Code. Lo completarás caso por caso.
 
 ---
 
@@ -97,7 +97,7 @@ Resuelve los casos en orden (el 3 solo se ve después de corregir el 1).
 
 Después de cada corrección, valida con el mismo usuario y completa la fila de la bitácora.
 
-> **Reto opcional.** Ejecuta de nuevo `./reporte-salud.ps1 -Horas 4` y compara con el primer reporte: la sección 1 debe mostrar los errores ya resueltos (anteriores a tus correcciones) y no deben aparecer nuevos.
+> **Reto opcional.** Ejecuta de nuevo [`./reporte-salud.ps1 -Horas 4`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/reporte-salud.ps1) y compara con el primer reporte: la sección 1 debe mostrar los errores ya resueltos (anteriores a tus correcciones) y no deben aparecer nuevos.
 
 ---
 
@@ -124,13 +124,13 @@ Después de cada corrección, valida con el mismo usuario y completa la fila de 
 |---|---|
 | 1 | El código del error te dice qué valor compara Entra. Compara letra por letra (mayúsculas, barra final, número) la URL de la solicitud con las Reply URL registradas |
 | 2 | Compara con la Práctica 2: ¿qué atributo y formato tiene hoy el **Unique User Identifier**? ¿El valor de `role` coincide con el **Value** de los App roles que espera el portal? |
-| 3 | La aplicación muestra la huella del certificado que firmó. ¿Está en `config.json`? ¿Cuál está activo en **SAML Certificates**? |
+| 3 | La aplicación muestra la huella del certificado que firmó. ¿Está en [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json)? ¿Cuál está activo en **SAML Certificates**? |
 | 4 | Lee el paso **Determine if user is in scope** y compáralo con el valor real del departamento |
 | 5 | ¿El invitado sigue siendo miembro del grupo asignado? Revisa los audit logs del grupo |
 
 ## Archivos completos
 
-**`C:\Curso\recursos\datos\bitacora-diagnostico.csv`** (consúltalo al terminar; también en `soluciones\bitacora-diagnostico-solucion.csv`)
+**[`C:\Curso\recursos\datos\bitacora-diagnostico.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/bitacora-diagnostico.csv)** (consúltalo al terminar; también en `soluciones\bitacora-diagnostico-solucion.csv`)
 
 ```text
 Caso,Sintoma_observado,Evidencia_y_registro,Causa_raiz,Correccion_aplicada,Validacion
@@ -141,13 +141,13 @@ Caso,Sintoma_observado,Evidencia_y_registro,Causa_raiz,Correccion_aplicada,Valid
 5,Un proveedor recibe AADSTS50105,Sign-in log del invitado con codigo 50105; GRP-Proveedores sin el invitado; audit log: Remove member from group,El invitado fue retirado del grupo asignado,Invitado agregado de nuevo a GRP-Proveedores,Inicio de sesion del invitado exitoso con perfil PROVEEDOR
 ```
 
-**`C:\Curso\recursos\scripts\reporte-salud.ps1`**: se usa sin cambios (ver la carpeta `scripts`).
+**[`C:\Curso\recursos\scripts\reporte-salud.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/reporte-salud.ps1)**: se usa sin cambios (ver la carpeta `scripts`).
 
 ## Problemas comunes
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `reporte-salud.ps1` pide permisos nuevos | Usa `AuditLog.Read.All` además de los permisos anteriores | Acepta el consentimiento con tu cuenta de administración |
+| [`reporte-salud.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/reporte-salud.ps1) pide permisos nuevos | Usa `AuditLog.Read.All` además de los permisos anteriores | Acepta el consentimiento con tu cuenta de administración |
 | El reporte no muestra errores | Los inicios de sesión fallidos tardan unos minutos en aparecer en los registros | Reproduce el error, espera 3 a 5 minutos y vuelve a ejecutar |
 | Corregí el caso 1 y ahora falla la firma | Es el caso 3: había dos fallas en la misma ruta | Continúa con el caso 3 |
 | El caso 4 no cambia tras corregir el filtro | El ciclo incremental aún no corre | Usa Provision on demand o **Restart provisioning** |

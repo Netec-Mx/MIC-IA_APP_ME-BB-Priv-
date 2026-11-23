@@ -27,8 +27,8 @@ Al terminar la práctica podrás:
 
 | Archivo (en `C:\Curso\recursos`) | Qué haces |
 |---|---|
-| `oidc-app\config.json` | Configuras el external tenant, el client ID y el secreto de la tienda |
-| `datos\mis-datos.txt` | Registras los datos del external tenant y de la aplicación |
+| [`oidc-app\config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/oidc-app/config.json) | Configuras el external tenant, el client ID y el secreto de la tienda |
+| [`datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) | Registras los datos del external tenant y de la aplicación |
 
 ---
 
@@ -56,7 +56,7 @@ Cliente ─► Tienda (OIDC, MSAL) ─► external tenant contosoclientesXX ─�
 
 **Paso 1.1.** En el Microsoft Entra admin center selecciona el icono **Settings** (engrane) › **Directories + subscriptions** y, en la fila `Contoso Clientes XX`, selecciona **Switch**.
 
-**Paso 1.2.** En **Overview** copia en `mis-datos.txt`:
+**Paso 1.2.** En **Overview** copia en [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt):
 
 | Dato | Ejemplo |
 |---|---|
@@ -79,7 +79,7 @@ Cliente ─► Tienda (OIDC, MSAL) ─► external tenant contosoclientesXX ─�
 |---|---|---|
 | Basics | Page background color | `#0F3D5C` |
 | Layout | (dejar la plantilla predeterminada) | |
-| Header | Banner logo | `C:\Curso\recursos\datos\logo-contoso-banner.png` |
+| Header | Banner logo | [`C:\Curso\recursos\datos\logo-contoso-banner.png`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/logo-contoso-banner.png) |
 | Sign-in form | Sign-in page text | `Bienvenido a la tienda en línea de Contoso` |
 
 Selecciona **Review + save › Save**. Los cambios tardan unos minutos en verse.
@@ -134,7 +134,7 @@ Selecciona **Create**.
 | Supported account types | **Accounts in this organizational directory only** | Solo los clientes del external tenant |
 | Redirect URI | **Web** · `http://localhost:5002/getAToken` | URL donde la aplicación recibe el código; `http://localhost` se admite para desarrollo |
 
-Selecciona **Register** y copia el **Application (client) ID** en `mis-datos.txt`.
+Selecciona **Register** y copia el **Application (client) ID** en [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt).
 
 **Paso 5.2.** En **Certificates & secrets › Client secrets › New client secret** escribe la descripción `lab`, vigencia 90 días, **Add**, y copia el **Value** (solo se muestra una vez).
 
@@ -197,7 +197,7 @@ Por omisión el ID token no incluye el país ni los atributos personalizados.
 
 ## Tarea 8. Ejecutar la tienda y registrar un cliente
 
-**Paso 8.1.** En VS Code edita `C:\Curso\recursos\oidc-app\config.json`:
+**Paso 8.1.** En VS Code edita [`C:\Curso\recursos\oidc-app\config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/oidc-app/config.json):
 
 ```json
 {
@@ -293,7 +293,7 @@ Resultado esperado: el claim `idp` = `google.com` y los atributos capturados.
 
 ## Archivos completos
 
-**`C:\Curso\recursos\oidc-app\config.json`** (también en `soluciones\oidc-app-config-practica8.json`; los identificadores son ejemplos)
+**[`C:\Curso\recursos\oidc-app\config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/oidc-app/config.json)** (también en `soluciones\oidc-app-config-practica8.json`; los identificadores son ejemplos)
 
 ```json
 {
@@ -306,7 +306,7 @@ Resultado esperado: el claim `idp` = `google.com` y los atributos capturados.
 }
 ```
 
-**`C:\Curso\recursos\datos\mis-datos.txt`** (sección de External ID)
+**[`C:\Curso\recursos\datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt)** (sección de External ID)
 
 ```text
 External ID (Práctica 8)
@@ -319,7 +319,7 @@ External ID (Práctica 8)
 
 | Elemento | Configuración |
 |---|---|
-| Company branding | Fondo `#0F3D5C`, banner `logo-contoso-banner.png`, texto de bienvenida |
+| Company branding | Fondo `#0F3D5C`, banner [`logo-contoso-banner.png`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/logo-contoso-banner.png), texto de bienvenida |
 | Proveedores | Email with password, Google |
 | Custom user attributes | `AceptaPromociones` (Boolean) |
 | User flow `Registro-Tienda` | Email with password + Google; Given Name, Surname, Country/Region (obligatorios), AceptaPromociones (opcional); aplicación Tienda en línea (Lab) |
@@ -336,6 +336,6 @@ External ID (Práctica 8)
 | `AADSTS50146` | Claims mapeados sin `acceptMappedClaims` | Cambia el manifiesto (Paso 7.2) |
 | `AADSTS50011` | La Redirect URI no coincide | Revisa `http://localhost:5002/getAToken` en ambos lados |
 | `AADSTS7000215` | Secreto incorrecto (se copió el **Secret ID** en lugar del **Value**) | Crea un secreto nuevo y copia el Value |
-| La tienda dice "Flujo inválido" | Se reinició `app.py` o se abrió el enlace en otra ventana | Vuelve a iniciar sesión desde `http://localhost:5002` |
+| La tienda dice "Flujo inválido" | Se reinició [`app.py`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/oidc-app/app.py) o se abrió el enlace en otra ventana | Vuelve a iniciar sesión desde `http://localhost:5002` |
 | No se piden los atributos al iniciar sesión | El usuario ya estaba registrado | Esperado: solo se piden en el registro |
 | La marca no aparece | Propagación de la configuración | Espera unos minutos y usa una ventana InPrivate nueva |

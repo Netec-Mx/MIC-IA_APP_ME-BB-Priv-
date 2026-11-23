@@ -28,8 +28,8 @@ Al terminar la práctica podrás:
 
 | Archivo (en `C:\Curso\recursos`) | Qué haces |
 |---|---|
-| `datos\mis-datos.txt` | Registras los datos de tu ambiente que usarás en todo el curso |
-| `datos\matriz-integracion.csv` | Completas la matriz de decisiones de las seis aplicaciones |
+| [`datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) | Registras los datos de tu ambiente que usarás en todo el curso |
+| [`datos\matriz-integracion.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/matriz-integracion.csv) | Completas la matriz de decisiones de las seis aplicaciones |
 
 Al final de la guía está el contenido completo de ambos archivos como deben quedar.
 
@@ -72,7 +72,7 @@ Los usuarios de prueba existen en Active Directory y se sincronizan a Microsoft 
 | MFA obligatoria para administradores | Microsoft exige MFA para entrar a los portales de administración (Entra, Azure). Por eso se registra desde el primer inicio |
 | Cuenta de laboratorio | Eres **Global Administrator** de tu tenant de laboratorio para no depender de permisos durante las prácticas. En producción se usan roles más acotados, como se vio en el Módulo 1 |
 
-**Paso 1.3.** En el portal, abre **Entra ID › Overview**. Copia en `datos\mis-datos.txt` (ábrelo con VS Code desde `C:\Curso\recursos`):
+**Paso 1.3.** En el portal, abre **Entra ID › Overview**. Copia en [`datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) (ábrelo con VS Code desde `C:\Curso\recursos`):
 
 - **Tenant ID** (GUID del tenant).
 - **Primary domain** (`labXX.onmicrosoft.com`).
@@ -152,7 +152,7 @@ Las prácticas 5 y 7 aplican **acceso condicional** con MFA. Cada usuario de pru
 
 **Paso 3.3.** Repite los pasos 3.1 y 3.2 con `luis.mendez`, `marta.ruiz`, `pedro.garcia` y `prueba.nube`. (`carla.diaz` es opcional.)
 
-**Paso 3.4.** Vuelve a ejecutar `./verificar-ambiente.ps1`. Resultado esperado:
+**Paso 3.4.** Vuelve a ejecutar [`./verificar-ambiente.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/verificar-ambiente.ps1). Resultado esperado:
 
 ```text
 MFA       ana.lopez@lab01.onmicrosoft.com     OK      1 método(s) además de la contraseña
@@ -184,9 +184,9 @@ Ambiente listo.
 
 ## Tarea 5. Analizar los escenarios de integración de Contoso
 
-**Paso 5.1.** En VS Code abre `C:\Curso\recursos\datos\escenarios-contoso.md` y lee las seis aplicaciones.
+**Paso 5.1.** En VS Code abre [`C:\Curso\recursos\datos\escenarios-contoso.md`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/escenarios-contoso.md) y lee las seis aplicaciones.
 
-**Paso 5.2.** Abre `datos\matriz-integracion.csv` y completa una fila por aplicación. Usa estos criterios (del Módulo 1):
+**Paso 5.2.** Abre [`datos\matriz-integracion.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/matriz-integracion.csv) y completa una fila por aplicación. Usa estos criterios (del Módulo 1):
 
 | Columna | Pregunta que responde | Opciones típicas |
 |---|---|---|
@@ -217,23 +217,23 @@ Ambiente listo.
 
 | Comprobación | Resultado |
 |---|---|
-| `verificar-ambiente.ps1` | "Ambiente listo." (o solo `carla.diaz` sin MFA) |
+| [`verificar-ambiente.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/verificar-ambiente.ps1) | "Ambiente listo." (o solo `carla.diaz` sin MFA) |
 | Licencias | 7 de 7 asignadas |
 | Grupos dinámicos | DYN-Compras con 3 miembros; Todos-Empleados con 7 |
-| `mis-datos.txt` | Tenant ID y dominio registrados |
+| [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) | Tenant ID y dominio registrados |
 | Matriz | Seis filas completas y comparadas con la solución |
 
 **Lista de verificación**
 
 - [ ] Inicié sesión en el Microsoft Entra admin center con MFA.
-- [ ] Ejecuté `verificar-ambiente.ps1` y entiendo cada fila.
+- [ ] Ejecuté [`verificar-ambiente.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/verificar-ambiente.ps1) y entiendo cada fila.
 - [ ] Registré MFA para ana, luis, marta, pedro y prueba.nube.
 - [ ] Puedo explicar la diferencia entre Enterprise applications y App registrations.
 - [ ] Completé la matriz de integración y la comparé con la solución.
 
 ## Archivos completos
 
-**`C:\Curso\recursos\datos\mis-datos.txt`** (sección completada en esta práctica; el resto se llena en las siguientes)
+**[`C:\Curso\recursos\datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt)** (sección completada en esta práctica; el resto se llena en las siguientes)
 
 ```text
 DATOS DE MI AMBIENTE (se completan en la Práctica 1 y se usan en todo el curso)
@@ -248,7 +248,7 @@ Contraseña de los usuarios de prueba ...... (la entrega soporte; no la escribas
 
 (El Tenant ID es un ejemplo: usa el de tu tenant.)
 
-**`C:\Curso\recursos\datos\matriz-integracion.csv`**
+**[`C:\Curso\recursos\datos\matriz-integracion.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/matriz-integracion.csv)**
 
 ```text
 Aplicacion,Usuarios,Ubicacion,Protocolo_SSO,Aprovisionamiento,Claims_o_datos_clave,Requisito_de_licencia,Practica

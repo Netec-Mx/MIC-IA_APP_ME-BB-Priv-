@@ -16,8 +16,8 @@ Al terminar la práctica podrás:
 
 | Requisito | Cómo comprobarlo |
 |---|---|
-| Práctica 1 terminada | `verificar-ambiente.ps1` indica "Ambiente listo." y MFA registrada para ana, luis, marta y pedro |
-| Tenant ID anotado | Está en `C:\Curso\recursos\datos\mis-datos.txt` |
+| Práctica 1 terminada | [`verificar-ambiente.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/verificar-ambiente.ps1) indica "Ambiente listo." y MFA registrada para ana, luis, marta y pedro |
+| Tenant ID anotado | Está en [`C:\Curso\recursos\datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) |
 | Entorno de Python del curso | En PowerShell 7: `C:\Curso\.venv\Scripts\python --version` muestra 3.12 |
 
 > **Cómo usar esta guía.** Cada paso tiene la acción, una tabla que explica las opciones y el resultado esperado. Si ya dominas el tema, sigue las acciones y compara resultados; si es tu primera vez, lee las tablas. `XX` es tu número de participante (los ejemplos usan `lab01`).
@@ -26,9 +26,9 @@ Al terminar la práctica podrás:
 
 | Archivo (en `C:\Curso\recursos`) | Qué haces |
 |---|---|
-| `saml-sp\config.json` | Configuras el tenant y el certificado de Entra en la aplicación de prueba |
+| [`saml-sp\config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) | Configuras el tenant y el certificado de Entra en la aplicación de prueba |
 | `saml-sp\certs\entra-actual.cer` | Guardas el certificado de firma descargado de Entra (archivo nuevo) |
-| `datos\mis-datos.txt` | Anotas los identificadores de la aplicación |
+| [`datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) | Anotas los identificadores de la aplicación |
 
 Al final están los archivos completos. En Entra creas la enterprise app **Portal de Proveedores (Lab)** y sus roles; su configuración final se resume en la sección **Configuración final en Entra**.
 
@@ -71,7 +71,7 @@ Huella: 6660B2DF47990FBD145CCD9ADBEFF925B2F3F5FD
 | Elemento | Explicación |
 |---|---|
 | `Activate.ps1` | Usa el Python del entorno virtual `C:\Curso\.venv`, donde están Flask, lxml, cryptography y msal. El indicador `(.venv)` aparece al inicio de la línea |
-| `generar_certificado_https.py` | Crea un certificado autofirmado para `https://localhost:5001`. Entra exige HTTPS en la URL de respuesta |
+| [`generar_certificado_https.py`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/generar_certificado_https.py) | Crea un certificado autofirmado para `https://localhost:5001`. Entra exige HTTPS en la URL de respuesta |
 
 **Paso 1.2.** Confía en el certificado HTTPS para que Edge no muestre advertencias:
 
@@ -81,14 +81,14 @@ Import-Certificate -FilePath .\certs\localhost.cer -CertStoreLocation Cert:\Curr
 
 Acepta la advertencia de seguridad de Windows (**Sí**). El certificado queda como raíz de confianza solo para tu usuario.
 
-**Paso 1.3.** Abre `config.json` en VS Code (`code config.json`) y reemplaza `<tenant-id>` por tu Tenant ID en dos lugares:
+**Paso 1.3.** Abre [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) en VS Code (`code config.json`) y reemplaza `<tenant-id>` por tu Tenant ID en dos lugares:
 
 ```json
   "idp_login_url": "https://login.microsoftonline.com/2b6c4f1e-7a2d-4c1b-9e35-0d8a3f6c1e41/saml2",
   "idp_entity_id": "https://sts.windows.net/2b6c4f1e-7a2d-4c1b-9e35-0d8a3f6c1e41/",
 ```
 
-| Parámetro de `config.json` | Significado | Efecto si es incorrecto |
+| Parámetro de [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) | Significado | Efecto si es incorrecto |
 |---|---|---|
 | `sp_entity_id` | Identificador de la aplicación (Issuer de sus solicitudes y Audience esperada) | Entra no encuentra la aplicación: `AADSTS700016` |
 | `acs_url` | URL donde la aplicación recibe la respuesta (ACS) | Entra rechaza la solicitud: `AADSTS50011` |
@@ -134,7 +134,7 @@ Selecciona **Create**. En unos segundos se abre la página **Overview** de la ap
 | Assignment required? | **Yes** | Solo los usuarios o grupos asignados reciben una assertion; el resto obtiene `AADSTS50105` |
 | Visible to users? | Yes | Muestra el icono en My Apps a los usuarios asignados |
 
-Copia **Object ID** y **Application ID** en `mis-datos.txt` y selecciona **Save** si cambiaste algo.
+Copia **Object ID** y **Application ID** en [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) y selecciona **Save** si cambiaste algo.
 
 **Paso 2.3.** Abre **Single sign-on › SAML**. En **Basic SAML Configuration** selecciona **Upload metadata file**, elige `Descargas\metadata-sp.xml` y **Add**. Revisa los valores cargados y selecciona **Save**:
 
@@ -163,10 +163,10 @@ Selecciona **Certificate (Base64) › Download** y guarda el archivo como `C:\Cu
 
 | Valor de Entra | Debe ser igual a… |
 |---|---|
-| Login URL | `idp_login_url` de `config.json` |
-| Microsoft Entra Identifier | `idp_entity_id` de `config.json` |
+| Login URL | `idp_login_url` de [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) |
+| Microsoft Entra Identifier | `idp_entity_id` de [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) |
 
-**Paso 2.6.** En `config.json` registra el certificado y guarda:
+**Paso 2.6.** En [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) registra el certificado y guarda:
 
 ```json
   "certificados_idp": ["certs/entra-actual.cer"],
@@ -335,7 +335,7 @@ Los registros de marta muestran **Failure** con el código **50105**.
 
 ## Tarea 7. Diagnosticar un error de identificador
 
-**Paso 7.1.** En `config.json` cambia temporalmente `sp_entity_id` a `https://saml-test.contoso.com/sp2`, guarda y reinicia la aplicación. Inicia sesión desde `https://localhost:5001`.
+**Paso 7.1.** En [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) cambia temporalmente `sp_entity_id` a `https://saml-test.contoso.com/sp2`, guarda y reinicia la aplicación. Inicia sesión desde `https://localhost:5001`.
 
 Resultado esperado: Entra muestra **AADSTS700016: Application with identifier 'https://saml-test.contoso.com/sp2' was not found in the directory**.
 
@@ -347,7 +347,7 @@ Resultado esperado: Entra muestra **AADSTS700016: Application with identifier 'h
 
 **Paso 7.2.** Restablece `sp_entity_id` a `https://saml-test.contoso.com/sp`, guarda, reinicia y confirma que el inicio de sesión vuelve a funcionar.
 
-> **Reto opcional.** Cambia en `config.json` el valor de `acs_url` a `https://localhost:5001/saml/acs2` (sin cambiar Entra). ¿Qué código de error aparece y por qué? (Respuesta: `AADSTS50011`, la URL de respuesta solicitada no está registrada.) Restablece el valor al terminar.
+> **Reto opcional.** Cambia en [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) el valor de `acs_url` a `https://localhost:5001/saml/acs2` (sin cambiar Entra). ¿Qué código de error aparece y por qué? (Respuesta: `AADSTS50011`, la URL de respuesta solicitada no está registrada.) Restablece el valor al terminar.
 
 ---
 
@@ -373,7 +373,7 @@ Resultado esperado: Entra muestra **AADSTS700016: Application with identifier 'h
 
 ## Archivos completos
 
-**`C:\Curso\recursos\saml-sp\config.json`** (también en `soluciones\saml-sp-config-practica2.json`; el Tenant ID es un ejemplo)
+**[`C:\Curso\recursos\saml-sp\config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json)** (también en `soluciones\saml-sp-config-practica2.json`; el Tenant ID es un ejemplo)
 
 ```json
 {
@@ -434,8 +434,8 @@ Fragmento del manifiesto de la aplicación (App registrations › Manifest) con 
 | `AADSTS700016` | `sp_entity_id` distinto del Identifier de Entra | Iguala ambos valores (incluida la barra final) |
 | `AADSTS50011` | `acs_url` no está en las Reply URL | Agrega la URL exacta en Basic SAML Configuration |
 | `AADSTS50105` | El usuario no está en un grupo asignado | Asigna el grupo; recuerda que los grupos anidados no cuentan |
-| "Firma válida: FALLA" | `config.json` no tiene el certificado activo de Entra | Descarga de nuevo **Certificate (Base64)** y revisa `certificados_idp` |
-| "InResponseTo: FALLA" | La sesión de la aplicación se perdió (se reinició `app.py` a mitad del flujo) | Vuelve a iniciar sesión desde `https://localhost:5001` |
+| "Firma válida: FALLA" | [`config.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/config.json) no tiene el certificado activo de Entra | Descarga de nuevo **Certificate (Base64)** y revisa `certificados_idp` |
+| "InResponseTo: FALLA" | La sesión de la aplicación se perdió (se reinició [`app.py`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/saml-sp/app.py) a mitad del flujo) | Vuelve a iniciar sesión desde `https://localhost:5001` |
 | `numeroEmpleado` no aparece | El usuario no tiene `employeeId` o el valor no contiene `EMP-` | Revisa el atributo en el perfil del usuario |
 | `role` aparece vacío | El grupo se asignó sin rol (Default Access) | Edita la asignación y elige el rol |
 | Se inicia sesión con el usuario anterior | Ventana InPrivate reutilizada | Cierra todas las ventanas InPrivate entre pruebas |

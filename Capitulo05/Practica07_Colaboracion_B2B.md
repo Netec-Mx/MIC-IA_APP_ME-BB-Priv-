@@ -26,8 +26,8 @@ Al terminar la práctica podrás:
 
 | Archivo (en `C:\Curso\recursos`) | Qué haces |
 |---|---|
-| `datos\invitados.csv` | Escribes los correos de tus cuentas externas |
-| `datos\mis-datos.txt` | Registras las cuentas externas |
+| [`datos\invitados.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/invitados.csv) | Escribes los correos de tus cuentas externas |
+| [`datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) | Registras las cuentas externas |
 
 ---
 
@@ -93,7 +93,7 @@ Selecciona **Save**.
 
 ## Tarea 3. Invitar a los usuarios externos
 
-**Paso 3.1.** Edita `datos\invitados.csv` con tus cuentas (conserva el encabezado):
+**Paso 3.1.** Edita [`datos\invitados.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/invitados.csv) con tus cuentas (conserva el encabezado):
 
 ```text
 correo,nombre,empresa
@@ -206,13 +206,13 @@ No se pidió una segunda MFA en Contoso: la política `LAB - MFA socios en porta
 
 - [ ] Configuré la colaboración externa y la lista de dominios permitidos.
 - [ ] Configuré cross-tenant access con Fabrikam y la confianza en MFA.
-- [ ] Invité a tres usuarios con `invitar-externos.ps1`.
+- [ ] Invité a tres usuarios con [`invitar-externos.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/invitar-externos.ps1).
 - [ ] Asigné GRP-Proveedores al portal y agregué la condición `PROVEEDOR`.
 - [ ] Probé el canje con los tres tipos de identidad y lo comprobé en los sign-in logs.
 
 ## Archivos completos
 
-**`C:\Curso\recursos\datos\invitados.csv`** (con tus correos)
+**[`C:\Curso\recursos\datos\invitados.csv`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/invitados.csv)** (con tus correos)
 
 ```text
 correo,nombre,empresa
@@ -221,7 +221,7 @@ externo.lab01@outlook.com,Proveedor Andes 01,Proveedor Andes
 cuenta.lab01@gmail.com,Proveedor Sur 01,Proveedor Sur
 ```
 
-**`C:\Curso\recursos\scripts\invitar-externos.ps1`** (se usa sin cambios)
+**[`C:\Curso\recursos\scripts\invitar-externos.ps1`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/invitar-externos.ps1)** (se usa sin cambios)
 
 ```powershell
 param(

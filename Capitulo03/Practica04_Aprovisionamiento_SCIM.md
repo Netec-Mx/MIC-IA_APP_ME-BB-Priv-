@@ -26,7 +26,7 @@ Al terminar la práctica podrás:
 | Archivo (en `C:\Curso\recursos`) | Qué haces |
 |---|---|
 | `scripts\prueba-scim.ps1` | Lo creas en la Tarea 1 para probar el endpoint (archivo nuevo) |
-| `datos\mis-datos.txt` | Registras la URL y el token del endpoint |
+| [`datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) | Registras la URL y el token del endpoint |
 
 ---
 
@@ -47,7 +47,7 @@ El fabricante del portal de proveedores ofrece un endpoint SCIM 2.0. Contoso qui
 
 ## Tarea 1. Probar el endpoint SCIM
 
-**Paso 1.1.** Copia la URL y el token en `mis-datos.txt`. En Edge abre:
+**Paso 1.1.** Copia la URL y el token en [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt). En Edge abre:
 
 - `https://scim-labXX.azurewebsites.net/registro?token=<tu-token>` (solicitudes recibidas)
 - `https://scim-labXX.azurewebsites.net/cuentas?token=<tu-token>` (usuarios y grupos que tiene la "aplicación")
@@ -295,7 +295,7 @@ Abre un registro **Create** y revisa **Modified Properties**: valores enviados d
 
 **Paso 6.4.** Prueba el ciclo incremental: quita la asignación de `marta.ruiz` en **Users and groups** (ya no se necesita) y cambia el **Job title** de `prueba.nube` a `Comprador`. No uses Provision on demand. Después del siguiente ciclo incremental (hasta 40 minutos) verás el `PATCH` en `/registro`. Continúa con otras tareas mientras tanto.
 
-> **Reto opcional (aprovisionamiento entrante por API).** En **Enterprise apps › New application** busca **API-driven provisioning to Microsoft Entra ID**, créala, configura **Provisioning Mode = Automatic** e inicia el aprovisionamiento. Copia el **Object ID** de la aplicación y el **Job ID** (Provisioning › Overview › View technical information). Edita `datos\lote-rrhh.json` para usar tu dominio y ejecuta `./carga-rrhh.ps1 -ServicePrincipalId <object-id> -JobId <job-id>`. Se crean Sofía Herrera (Compras) y Raúl Torres (Finanzas) en Entra; Sofía entra a `DYN-Compras` y, en el siguiente ciclo, al portal de proveedores. Elimina ambos usuarios al terminar.
+> **Reto opcional (aprovisionamiento entrante por API).** En **Enterprise apps › New application** busca **API-driven provisioning to Microsoft Entra ID**, créala, configura **Provisioning Mode = Automatic** e inicia el aprovisionamiento. Copia el **Object ID** de la aplicación y el **Job ID** (Provisioning › Overview › View technical information). Edita [`datos\lote-rrhh.json`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/lote-rrhh.json) para usar tu dominio y ejecuta [`./carga-rrhh.ps1 -ServicePrincipalId <object-id> -JobId <job-id>`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/scripts/carga-rrhh.ps1). Se crean Sofía Herrera (Compras) y Raúl Torres (Finanzas) en Entra; Sofía entra a `DYN-Compras` y, en el siguiente ciclo, al portal de proveedores. Elimina ambos usuarios al terminar.
 
 ---
 
@@ -361,7 +361,7 @@ Invoke-RestMethod "$Url/Users/$($u.id)" -Method Delete -Headers $h | Out-Null
 "4c. Eliminado"
 ```
 
-**`C:\Curso\recursos\datos\mis-datos.txt`** (sección del endpoint)
+**[`C:\Curso\recursos\datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt)** (sección del endpoint)
 
 ```text
 Endpoint SCIM (Práctica 4)

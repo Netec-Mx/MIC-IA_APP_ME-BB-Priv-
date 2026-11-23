@@ -26,7 +26,7 @@ Al terminar la práctica podrás:
 
 | Archivo | Qué haces |
 |---|---|
-| `C:\Curso\recursos\datos\mis-datos.txt` (LAB-CLIENT) | Registras las URL externas de las dos aplicaciones |
+| [`C:\Curso\recursos\datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt) (LAB-CLIENT) | Registras las URL externas de las dos aplicaciones |
 
 En Entra creas dos aplicaciones publicadas (**ERP heredado** e **Intranet RR. HH.**) y una política de acceso condicional; la configuración final está en la sección **Configuración final en Entra**.
 
@@ -122,7 +122,7 @@ En **Additional settings** deja:
 | Translate URLs In Headers | Yes | Cambia `erp.contoso.local` por la URL externa en redirecciones |
 | Translate URLs In Application Body | No | Solo se necesita si el HTML contiene enlaces internos fijos |
 
-Selecciona **Add**. Copia la **External Url** en `mis-datos.txt`.
+Selecciona **Add**. Copia la **External Url** en [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt).
 
 **Paso 3.2.** En **Users and groups** asigna `GRP-Logistica` y `DYN-Compras` (Default Access). En **Properties** confirma **Assignment required = Yes**.
 
@@ -146,7 +146,7 @@ Resultado esperado: la página **ERP heredado - encabezados recibidos** con la l
 | Pre Authentication | Microsoft Entra ID |
 | Connector Group | `CG-LAB` |
 
-Deja las demás opciones como en el Paso 3.1, selecciona **Add** y copia la External Url en `mis-datos.txt`.
+Deja las demás opciones como en el Paso 3.1, selecciona **Add** y copia la External Url en [`mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt).
 
 **Paso 4.2.** Asigna `DYN-Compras` y `GRP-RRHH`.
 
@@ -213,7 +213,7 @@ Abre también el intento de `marta.ruiz` (Tarea 3): Status **Failure**, código 
 
 ## Archivos completos
 
-**`C:\Curso\recursos\datos\mis-datos.txt`** (sección de application proxy)
+**[`C:\Curso\recursos\datos\mis-datos.txt`](https://github.com/Netec-Mx/MIC-IA_APP_ME-BB-Priv-/blob/main/recursos/datos/mis-datos.txt)** (sección de application proxy)
 
 ```text
 Application proxy (Prácticas 5 y 6)
