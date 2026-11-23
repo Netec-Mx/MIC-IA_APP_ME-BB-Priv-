@@ -1,0 +1,11 @@
+{
+  "puerto": 5001,
+  "sp_entity_id": "https://saml-test.contoso.com/sp",
+  "acs_url": "https://localhost:5001/saml/acs",
+  "idp_login_url": "https://login.microsoftonline.com/<tenant-id>/saml2",
+  "idp_entity_id": "https://sts.windows.net/<tenant-id>/",
+  "nameid_formato": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+  "certificados_idp": [],
+  "relay_state": "/",
+  "tolerancia_reloj_segundos": 120
+}

@@ -1,0 +1,40 @@
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:BulkRequest"],
+  "Operations": [
+    {
+      "method": "POST",
+      "bulkId": "emp-00511",
+      "path": "/Users",
+      "data": {
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
+        "externalId": "EMP-00511",
+        "userName": "sofia.herrera@lab01.onmicrosoft.com",
+        "name": { "givenName": "Sofía", "familyName": "Herrera" },
+        "displayName": "Sofía Herrera",
+        "title": "Compradora Jr.",
+        "active": true,
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+          "employeeNumber": "EMP-00511", "department": "Compras" }
+      }
+    },
+    {
+      "method": "POST",
+      "bulkId": "emp-00512",
+      "path": "/Users",
+      "data": {
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+                    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
+        "externalId": "EMP-00512",
+        "userName": "raul.torres@lab01.onmicrosoft.com",
+        "name": { "givenName": "Raúl", "familyName": "Torres" },
+        "displayName": "Raúl Torres",
+        "title": "Analista de Finanzas",
+        "active": true,
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+          "employeeNumber": "EMP-00512", "department": "Finanzas" }
+      }
+    }
+  ],
+  "failOnErrors": null
+}

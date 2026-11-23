@@ -1,0 +1,8 @@
+{
+  "puerto": 5002,
+  "authority": "https://<subdominio>.ciamlogin.com/<subdominio>.onmicrosoft.com",
+  "client_id": "<id-de-la-aplicacion>",
+  "client_secret": "<valor-del-secreto>",
+  "redirect_uri": "http://localhost:5002/getAToken",
+  "post_logout_redirect_uri": "http://localhost:5002/"
+}

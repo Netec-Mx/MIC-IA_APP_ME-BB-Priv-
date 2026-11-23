@@ -1,0 +1,7 @@
+Aplicacion,Usuarios,Ubicacion,Protocolo_SSO,Aprovisionamiento,Claims_o_datos_clave,Requisito_de_licencia,Practica
+ServiceNow,Empleados,SaaS (galeria),SAML 2.0 con plantilla de galeria,SCIM de galeria,NameID = UPN; roles por grupo,Entra ID Free (SSO); P1 para asignar grupos,Referencia (Modulo 2 y 3)
+Portal de proveedores,Compras (empleados) y proveedores (B2B),SaaS fuera de galeria,SAML 2.0 fuera de galeria,SCIM 2.0 propio,NameID = correo; role (app roles); numeroEmpleado,P1 (grupos y acceso condicional); invitados por MAU,Practicas 2 a 4 y 7
+Intranet RR. HH.,Empleados,On-premises (IIS con autenticacion de Windows),Application proxy + KCD,No aplica (cuentas de AD DS),SPN HTTP/hr.contoso.local; identidad delegada UPN,P1 (application proxy),Practicas 5 y 6
+ERP heredado,Finanzas y logistica,On-premises (lee encabezados HTTP),Application proxy + SSO por encabezados,Interno del ERP,X-User = sAMAccountName; X-Email; X-Dept,P1 (application proxy),Practica 6
+App movil de ventas,Fuerza de ventas,Desarrollo propio (movil + API),OpenID Connect y OAuth 2.0 con MSAL,No requiere,Scope api://pedidos/Orders.Read; roles en el access token,Entra ID Free; P1 para acceso condicional,Referencia (Modulo 1)
+Tienda en linea,Clientes (consumidores),Desarrollo propio web,External ID (external tenant) con OIDC,Autoservicio con user flow,Nombre; pais; AceptaPromociones,External ID por MAU (primeros 50 000 sin costo),Practica 8

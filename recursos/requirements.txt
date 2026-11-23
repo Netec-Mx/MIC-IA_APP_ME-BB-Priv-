@@ -1,0 +1,7 @@
+# Bibliotecas de las aplicaciones de prueba que se ejecutan en LAB-CLIENT
+# Instalar con:  python -m pip install -r requirements.txt
+flask>=3.0          # aplicaciones web (saml-sp, oidc-app y scim-endpoint en local)
+lxml>=5.0           # lectura y canonicalización del XML SAML
+cryptography>=42.0  # certificados y verificación de firmas
+msal>=1.31          # Microsoft Authentication Library (oidc-app)
+requests>=2.31      # pruebas del endpoint SCIM

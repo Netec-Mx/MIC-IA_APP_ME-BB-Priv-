@@ -1,0 +1,7 @@
+Carpeta de certificados de la aplicación SAML de prueba.
+
+- localhost.pem, localhost-key.pem y localhost.cer: certificado HTTPS de https://localhost:5001.
+  Se crean con: python generar_certificado_https.py
+- entra-*.cer: certificados de firma SAML descargados de Microsoft Entra
+  (Single sign-on > SAML Certificates > Certificate (Base64)).
+  Se registran en config.json, en la lista "certificados_idp".
